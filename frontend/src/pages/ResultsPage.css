@@ -1,0 +1,348 @@
+/* frontend/src/pages/ResultsPage.css */
+.results-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.results-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.results-header h1 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.results-header p {
+    font-size: 16px;
+    color: #7f8c8d;
+}
+
+/* Loading State */
+.loading {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #4CAF50;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error-box {
+    background-color: #fef1f1;
+    border: 1px solid #f44336;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+}
+
+.error-box h3 {
+    color: #f44336;
+    margin-bottom: 10px;
+}
+
+.error-box button {
+    margin-top: 20px;
+    padding: 10px 24px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* No Results */
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Top Match Highlight */
+.top-match-highlight {
+    margin-bottom: 40px;
+}
+
+.top-match-highlight h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* All Matches Grid */
+.all-matches h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+/* Job Match Card */
+.job-match-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.job-match-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.rank-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.job-info h3 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin: 0 0 8px 0;
+}
+
+.job-info .company {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin: 0 0 4px 0;
+}
+
+.job-info .location {
+    font-size: 13px;
+    color: #95a5a6;
+    margin: 0;
+}
+
+/* Score Section */
+.score-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.score-circle {
+    width: 100px;
+    height: 100px;
+    border: 6px solid;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.score-value {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.score-label {
+    font-size: 11px;
+    color: #7f8c8d;
+    margin-top: 4px;
+}
+
+.skill-match {
+    flex: 1;
+}
+
+.match-percentage {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.experience-info {
+    font-size: 13px;
+    color: #7f8c8d;
+}
+
+/* Skills Section */
+.skills-section {
+    margin-bottom: 20px;
+}
+
+.matched-skills,
+.missing-skills {
+    margin-bottom: 16px;
+}
+
+.skills-section h4 {
+    font-size: 14px;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.skill-tag.matched {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.skill-tag.missing {
+    background-color: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ffcc80;
+}
+
+.skill-tag.more {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #90caf9;
+}
+
+/* Recommendations */
+.recommendations {
+    margin-bottom: 20px;
+}
+
+.recommendations h4 {
+    font-size: 14px;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.recommendation {
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 8px;
+    border-left: 4px solid;
+}
+
+.recommendation.critical {
+    background-color: #fef1f1;
+    border-color: #f44336;
+    color: #c62828;
+}
+
+.recommendation.warning {
+    background-color: #fff3e0;
+    border-color: #FF9800;
+    color: #e65100;
+}
+
+.recommendation.info {
+    background-color: #e3f2fd;
+    border-color: #2196F3;
+    color: #1565c0;
+}
+
+.recommendation.success {
+    background-color: #e8f5e9;
+    border-color: #4CAF50;
+    color: #2e7d32;
+}
+
+/* Card Actions */
+.card-actions {
+    display: flex;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.btn-primary,
+.btn-secondary {
+    flex: 1;
+    padding: 10px 16px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+.btn-secondary {
+    background-color: white;
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
+}
+
+.btn-secondary:hover {
+    background-color: #f1f8f4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .matches-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .score-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card-actions {
+        flex-direction: column;
+    }
+}
