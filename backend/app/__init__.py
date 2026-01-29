@@ -1,4 +1,3 @@
-# backend/app/__init__.py
 from flask import Flask
 from flask_cors import CORS
 from pymongo import MongoClient
@@ -25,7 +24,6 @@ def create_app():
     app.job_model = Job(app.db)
     app.match_model = Match(app.db)
 
-    
     app.register_blueprint(resume_bp)
     
     return app

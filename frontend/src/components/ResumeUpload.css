@@ -1,0 +1,77 @@
+/* frontend/src/components/ResumeUpload.css */
+.resume-upload-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.resume-upload-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.upload-section input[type="file"] {
+    padding: 10px;
+    border: 2px dashed #4CAF50;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.file-info {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+.upload-button {
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.upload-button:hover:not(:disabled) {
+    background-color: #45a049;
+}
+
+.upload-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.success-message {
+    color: #4CAF50;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f1f8f4;
+    border-radius: 4px;
+}
+
+.error-message {
+    color: #f44336;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #fef1f1;
+    border-radius: 4px;
+}
+
+.resume-id-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e3f2fd;
+    border-radius: 4px;
+}
