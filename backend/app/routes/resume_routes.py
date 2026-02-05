@@ -3,18 +3,26 @@ from flask import Blueprint, request, jsonify, current_app
 from app.utils.file_handler import save_uploaded_file
 from bson import ObjectId
 from app.services.resume_parser import parse_resume, extract_basic_info
+<<<<<<< HEAD
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from app.utils.decorators import candidate_required
+=======
+>>>>>>> b3a3b4bed96ef7f887abeaddc9d451e2b5943459
 
 resume_bp = Blueprint('resume', __name__, url_prefix='/api/resume')
 
 @resume_bp.route('/upload', methods=['POST'])
 @candidate_required
 def upload_resume():
+<<<<<<< HEAD
     """Upload and parse resume file (Candidate only)"""
     try:
         current_user_id = get_jwt_identity()  # Get logged-in user ID
         
+=======
+    """Upload and parse resume file"""
+    try:
+>>>>>>> b3a3b4bed96ef7f887abeaddc9d451e2b5943459
         if 'file' not in request.files:
             return jsonify({'error': 'No file provided'}), 400
         
@@ -22,8 +30,15 @@ def upload_resume():
         if file.filename == '':
             return jsonify({'error': 'No file selected'}), 400
         
+<<<<<<< HEAD
         # Save file with current user's ID
         file_path = save_uploaded_file(file, current_user_id)
+=======
+        user_id = request.form.get('user_id', '000000000000000000000000')
+        
+        # Save file
+        file_path = save_uploaded_file(file, user_id)
+>>>>>>> b3a3b4bed96ef7f887abeaddc9d451e2b5943459
         if not file_path:
             return jsonify({'error': 'Invalid file type'}), 400
         
@@ -34,12 +49,15 @@ def upload_resume():
         
         basic_info = extract_basic_info(parsed_text)
         
+<<<<<<< HEAD
         # Extract skills
         from app.services.skill_extractor import SkillExtractor
         skill_extractor = SkillExtractor()
         skills = skill_extractor.extract_skills_with_ner(parsed_text)
         experience_years = skill_extractor.extract_experience_years(parsed_text)
         
+=======
+>>>>>>> b3a3b4bed96ef7f887abeaddc9d451e2b5943459
         # Save to database
         resume_id = current_app.resume_model.create_resume(
             user_id=current_user_id,
@@ -52,9 +70,13 @@ def upload_resume():
             'parsed_text': parsed_text,
             'email': basic_info['email'],
             'phone': basic_info['phone'],
+<<<<<<< HEAD
             'linkedin': basic_info['linkedin'],
             'skills': skills,
             'experience_years': experience_years
+=======
+            'linkedin': basic_info['linkedin']
+>>>>>>> b3a3b4bed96ef7f887abeaddc9d451e2b5943459
         })
         
         return jsonify({
@@ -62,8 +84,11 @@ def upload_resume():
             'resume_id': resume_id,
             'filename': file.filename,
             'text_length': len(parsed_text),
+<<<<<<< HEAD
             'skills_found': len(skills),
             'experience_years': experience_years,
+=======
+>>>>>>> b3a3b4bed96ef7f887abeaddc9d451e2b5943459
             'basic_info': basic_info
         }), 201
         
